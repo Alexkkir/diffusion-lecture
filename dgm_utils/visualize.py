@@ -81,14 +81,24 @@ def visualize_2d_data(
     train_labels: Optional[str] = None,
     test_labels: Optional[str] = None,
 ) -> None:
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
-    ax1.set_title("train", fontsize=TITLE_FONT_SIZE)
-    ax1.scatter(train_data[:, 0], train_data[:, 1], s=1, c=train_labels)
-    ax1.tick_params(labelsize=LABEL_FONT_SIZE)
-    ax2.set_title("test", fontsize=TITLE_FONT_SIZE)
-    ax2.scatter(test_data[:, 0], test_data[:, 1], s=1, c=test_labels)
-    ax2.tick_params(labelsize=LABEL_FONT_SIZE)
-    plt.show()
+    if test_data is not None:
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+        ax1.set_title("train", fontsize=TITLE_FONT_SIZE)
+        ax1.scatter(train_data[:, 0], train_data[:, 1], s=1, c=train_labels)
+        ax1.tick_params(labelsize=LABEL_FONT_SIZE)
+        ax2.set_title("test", fontsize=TITLE_FONT_SIZE)
+        ax2.scatter(test_data[:, 0], test_data[:, 1], s=1, c=test_labels)
+        ax2.tick_params(labelsize=LABEL_FONT_SIZE)
+        plt.show()
+    else:
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+        ax1.set_title("train", fontsize=TITLE_FONT_SIZE)
+        ax1.scatter(train_data[:, 0], train_data[:, 1], s=1, c=train_labels)
+        ax1.tick_params(labelsize=LABEL_FONT_SIZE)
+        ax2.set_title("test", fontsize=TITLE_FONT_SIZE)
+        ax2.scatter(test_data[:, 0], test_data[:, 1], s=1, c=test_labels)
+        ax2.tick_params(labelsize=LABEL_FONT_SIZE)
+        plt.show()
 
 
 def visualize_2d_samples(
@@ -97,6 +107,7 @@ def visualize_2d_samples(
     labels: Optional[str] = None,
     xlabel: str = "x1",
     ylabel: str = "x2",
+    show: bool = True
 ) -> None:
     plt.figure(figsize=(5, 5))
     plt.scatter(data[:, 0], data[:, 1], s=1, c=labels)
@@ -107,7 +118,8 @@ def visualize_2d_samples(
         plt.xlabel(xlabel, fontsize=LABEL_FONT_SIZE)
     if ylabel is not None:
         plt.ylabel(ylabel, fontsize=LABEL_FONT_SIZE)
-    plt.show()
+    if show:
+        plt.show()
 
 
 def visualize_2d_densities(

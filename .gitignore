@@ -1,4 +1,5 @@
 images/
+gifs/
 *.DS_Store
 *.ipynb_checkpoints
 *.idea
@@ -15,6 +16,9 @@ images/
 *.nav
 *.snm
 *eps-converted-to.pdf
+*.png
+*.jpg
+*.jpeg
 
 #additions by PMokrov
 *__pycache__*
