@@ -1,1 +1,20 @@
-images
+images/
+*.DS_Store
+*.ipynb_checkpoints
+*.idea
+
+#Tex
+*.out
+*.log
+*.aux
+*.bbl
+*.blg
+*.synctex.gz
+*.gz(busy)
+*.toc
+*.nav
+*.snm
+*eps-converted-to.pdf
+
+#additions by PMokrov
+*__pycache__*
