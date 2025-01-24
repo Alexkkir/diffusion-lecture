@@ -1,6 +1,7 @@
 from collections import defaultdict
 from IPython.display import clear_output
 from typing import Optional, Tuple
+import matplotlib.pyplot as plt
 
 import numpy as np
 
@@ -94,7 +95,10 @@ def train_model(
             clear_output(wait=True)
             title = f"Samples, epoch: {epoch}, {loss_key}: {epoch_loss:.3f}"
             if check_samples_is_2d(samples):
-                visualize_2d_samples(samples, title=title)
+                visualize_2d_samples(samples, title=title, show=False)
+                plt.xlim(-2.75, 3.25)
+                plt.ylim(-3, 3)
+                plt.savefig(f'images/train/{epoch:04d}.png')
             else:
                 show_samples(samples, title=title)
             plot_training_curves(train_losses, test_losses)
